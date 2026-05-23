@@ -1,7 +1,8 @@
 {
   "name": "vscode-ikuma-theme",
   "displayName": "vscode-ikuma-theme",
-  "description": "",
+  "description": "VS Code theme for personal use.",
+  "publisher": "Ikuma Yamashita",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.120.0"
