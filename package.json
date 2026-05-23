@@ -1,0 +1,21 @@
+{
+  "name": "vscode-ikuma-theme",
+  "displayName": "vscode-ikuma-theme",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.120.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "ikuma-theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/ikuma-theme-color-theme.json"
+      }
+    ]
+  }
+}
