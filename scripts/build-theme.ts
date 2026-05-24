@@ -24,22 +24,26 @@ const palette = {
   secondary: "#a17c5b",
 
   crimson: "#c56565",
-  amber: "#d48b70",
+  brown: "#967a62",
+  amber: "#a97562",
   gold: "#cdb57b",
   emerald: "#59b57c",
   cyan: "#59a7b5",
+  slate: "#868e9c",
 
   crimsonTransparent: "#c56565c7",
   emeraldTransparent: "#59b57cc5",
+  primaryHighlight: "#ad9f7d40",
 
-  comment: "#546e7a",
-  keyword: "#c792ea",
-  string: "#c3e88d",
-  number: "#f78c6c",
-  function: "#82aaff",
-  type: "#ffcb6b",
-  operator: "#cdb57b",
-  tag: "#f07178",
+  comment: "#868e9c",
+  operator: "#a38c78",
+  keyword: "#c0a361",
+  function: "#cdb57b",
+  type: "#d8cbb7",
+  string: "#ccaea2",
+  number: "#d48b70",
+  tag: "#dcd1ba",
+
   error: "#c56565",
 } as const;
 
@@ -47,6 +51,7 @@ const theme = {
   name: "ikuma-theme",
   type: "dark",
   colors: {
+    foreground: palette.primaryBrightest,
     "textLink.foreground": palette.primary,
     "textLink.activeForeground": palette.primaryBright,
     "list.activeSelectionBackground": palette.secondaryDimDim,
@@ -95,6 +100,19 @@ const theme = {
     "quickInput.background": palette.bg,
     "quickInput.foreground": palette.primaryBright,
     "quickInputList.focusBackground": palette.primaryDimDim,
+
+    "editorBracketHighlight.foreground1": palette.slate,
+    "editorBracketHighlight.foreground2": palette.brown,
+    "editorBracketHighlight.foreground3": palette.primaryDim,
+    "editorBracketHighlight.foreground4": palette.slate,
+    "editorBracketHighlight.foreground5": palette.brown,
+    "editorBracketHighlight.foreground6": palette.primaryDim,
+    "editorBracketHighlight.unexpectedBracket.foreground": palette.crimson,
+
+    "editorBracketMatch.background": palette.primaryHighlight,
+    "editorBracketMatch.border": palette.primary,
+
+    "editorOverviewRuler.bracketMatchForeground": palette.primaryDim,
   },
   tokenColors: [
     {
@@ -133,15 +151,26 @@ const theme = {
         "entity.name.class",
         "support.type",
         "support.class",
+        "variable.other.readwrite.alias",
+        "support.class.component",
       ],
       settings: { foreground: palette.type },
     },
     {
-      scope: ["punctuation", "keyword.operator", "keyword.control"],
+      scope: ["keyword.operator", "keyword.control"],
       settings: { foreground: palette.operator },
     },
     {
-      scope: ["entity.name.tag", "entity.other.attribute-name"],
+      scope: [
+        "entity.name.tag",
+        "entity.other.attribute-name",
+        "support.type.property-name",
+        "meta.object-literal.key",
+        "entity.name.tag.yaml",
+        "entity.name.tag.toml",
+        "support.type.property-name.toml",
+        "variable.other.enummember",
+      ],
       settings: { foreground: palette.tag },
     },
     {
@@ -153,6 +182,42 @@ const theme = {
       settings: { foreground: palette.fg },
     },
   ],
+  semanticTokenColors: {
+    comment: { foreground: palette.comment, fontStyle: "italic" },
+
+    keyword: palette.keyword,
+    operator: palette.operator,
+
+    string: palette.string,
+    number: palette.number,
+    regexp: palette.string,
+
+    variable: palette.fg,
+    "variable.readonly": palette.primary,
+    parameter: palette.fg,
+    property: palette.tag,
+
+    function: palette.function,
+    method: palette.function,
+    macro: palette.function,
+    decorator: palette.function,
+    event: palette.function,
+    label: palette.tag,
+
+    class: palette.type,
+    interface: palette.type,
+    enum: palette.type,
+    struct: palette.type,
+    type: palette.type,
+    typeParameter: palette.type,
+    namespace: palette.type,
+    enumMember: palette.number,
+
+    "*.defaultLibrary": palette.primaryBright,
+    "variable.readonly.defaultLibrary": palette.primary,
+    "*.async": { fontStyle: "italic" },
+    "*.deprecated": { fontStyle: "strikethrough" },
+  },
 };
 
 const out = "themes/ikuma-theme-color-theme.json";
