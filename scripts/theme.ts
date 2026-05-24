@@ -55,8 +55,8 @@ export function getTheme() {
 
       "editorCursor.foreground": v("primaryBright"),
 
-      "editorIndentGuide.background": v("primaryDim", "20"),
-      "editorIndentGuide.activeBackground": v("primaryDim", "60"),
+      "editorIndentGuide.background1": v("primaryDim", "20"),
+      "editorIndentGuide.activeBackground1": v("primaryDim", "60"),
       "editorWhitespace.foreground": v("primaryDim", "20"),
 
       "editorInlayHint.foreground": punctuation,
