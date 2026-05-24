@@ -186,7 +186,7 @@ export function getTheme(options: GetThemeOptions) {
       "gitDecoration.modifiedResourceForeground": v("blue"),
       "gitDecoration.deletedResourceForeground": v("red"),
       "gitDecoration.untrackedResourceForeground": v("cyan"),
-      "gitDecoration.ignoredResourceForeground": v("ignored"),
+      "gitDecoration.ignoredResourceForeground": v("ignored", "75"),
       "gitDecoration.conflictingResourceForeground": v("orange"),
       "gitDecoration.submoduleResourceForeground": secondaryForeground,
 
