@@ -25,6 +25,8 @@ export const palette = {
   primaryDimDim: ["#5c5346", "#c4b89c"],
   primaryDim: ["#867b64", "#a89878"],
   primary: ["#ad9f7d", "#7a6a45"],
+  // One step brighter/lighter than primary — for hover states. NOT the maximum-contrast accent.
+  primaryHover: ["#c2b491", "#8b7a52"],
   // primaryBright = highest-contrast accent (light in dark mode, dark in light mode)
   primaryBright: ["#ece4d4", "#54451f"],
   secondaryDimDim: ["#453f39", "#dcd0b8"],

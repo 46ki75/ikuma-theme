@@ -36,8 +36,8 @@ export function getTheme(options: GetThemeOptions) {
       "input.placeholderForeground": secondaryForeground,
 
       "button.background": primary,
-      "button.foreground": "background",
-      "button.hoverBackground": v("primaryBright"),
+      "button.foreground": background,
+      "button.hoverBackground": p("primaryHover"),
 
       "badge.background": v("secondaryDim"),
       "badge.foreground": foreground,
@@ -71,6 +71,8 @@ export function getTheme(options: GetThemeOptions) {
 
       "editorStickyScroll.background": activeBackground,
       "editorStickyScrollHover.background": activeBackground,
+      "editorStickyScroll.shadow": p("transparent"),
+      "editorStickyScroll.border": v("primaryDim", "40"),
 
       "editorWidget.background": activeBackground,
       "editorWidget.border": border,
