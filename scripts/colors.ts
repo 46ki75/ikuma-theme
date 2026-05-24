@@ -1,39 +1,42 @@
-// Raw color tokens — edit here to retint the theme.
+// Each color is a [dark, light] tuple. Edit either side to retint that variant.
 export const palette = {
-  // base16 — UI scale (dark → light)
-  base00: "#393e46", // default background (editor)
-  base01: "#31353a", // lighter background (sidebar, tabs)
-  base02: "#242629", // selection / status bar background
-  base03: "#949ba7", // comments, invisibles, line highlight
-  base04: "#aba294", // dim foreground (status bar text)
-  base05: "#b0b5be", // default foreground, operators, delimiters
-  base06: "#bec2ca", // light foreground
-  base07: "#cccfd5", // lightest foreground
+  // base16 — UI scale
+  base00: ["#393e46", "#faf7ef"], // default background (editor)
+  base01: ["#31353a", "#f1ecdf"], // lighter background (sidebar, tabs)
+  base02: ["#242629", "#e6dfc8"], // status bar / deep background
+  base03: ["#949ba7", "#9a9789"], // comments
+  base04: ["#aba294", "#6e6759"], // dim foreground (status bar text)
+  base05: ["#b0b5be", "#4a443a"], // default foreground, operators
+  base06: ["#bec2ca", "#332e26"], // light foreground
+  base07: ["#cccfd5", "#1c1813"], // lightest foreground
 
   // base16 — syntax accents
-  base08: "#dcd1ba", // variables, tags, deletions
-  base09: "#bda59e", // numbers, constants, attributes
-  base0A: "#d8cbb7", // classes, types, search highlight
-  base0B: "#a9af9c", // strings, insertions
-  base0C: "#59b5ac", // support, regex, escapes
-  base0D: "#8db592", // functions, methods, headings
-  base0E: "#c9af70", // keywords, storage, selectors
-  base0F: "#ac8c71", // deprecated, embedded language tags
+  base08: ["#dcd1ba", "#7a5e2c"], // variables, tags
+  base09: ["#bda59e", "#9c5c4a"], // numbers, constants
+  base0A: ["#d8cbb7", "#7e6536"], // classes, types
+  base0B: ["#a9af9c", "#5e7036"], // strings
+  base0C: ["#59b5ac", "#2c7a72"], // support, regex, escapes
+  base0D: ["#8db592", "#3e7548"], // functions, methods
+  base0E: ["#c9af70", "#7a6010"], // keywords, storage
+  base0F: ["#ac8c71", "#6e4a30"], // deprecated, embedded tags
 
-  // Extended accents (outside base16)
-  bgBrightest: "#454c58",
-  primaryDimDim: "#5c5346",
-  primaryDim: "#867b64",
-  primary: "#ad9f7d",
-  primaryBright: "#ece4d4",
-  secondaryDimDim: "#453f39",
-  secondaryDim: "#63564a",
-  crimson: "#c56565",
-  emerald: "#59b57c",
-} as const;
+  // Extended accents
+  bgBrightest: ["#454c58", "#d8d0b8"],
+  primaryDimDim: ["#5c5346", "#c4b89c"],
+  primaryDim: ["#867b64", "#a89878"],
+  primary: ["#ad9f7d", "#7a6a45"],
+  // primaryBright = highest-contrast accent (light in dark mode, dark in light mode)
+  primaryBright: ["#ece4d4", "#54451f"],
+  secondaryDimDim: ["#453f39", "#dcd0b8"],
+  secondaryDim: ["#63564a", "#b8a888"],
+  crimson: ["#c56565", "#a04545"],
+  emerald: ["#59b57c", "#2e8f53"],
 
-// Semantic aliases — what each role looks like.
-// Edit here to remap roles to different palette entries without touching the theme builder.
+  transparent: ["#00000000", "#00000000"],
+} as const satisfies Record<string, readonly [string, string]>;
+
+// Semantic aliases — assign meaning to palette entries.
+// Edit here to remap roles without touching the theme builder.
 export const tokens = {
   // UI roles
   foreground: palette.base05,
@@ -46,7 +49,7 @@ export const tokens = {
   activeBackground: palette.base01,
   deepBackground: palette.base02,
   bgBrightest: palette.bgBrightest,
-  border: "#00000000",
+  border: palette.transparent,
 
   primary: palette.primary,
   primaryDim: palette.primaryDim,

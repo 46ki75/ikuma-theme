@@ -19,9 +19,14 @@
   "contributes": {
     "themes": [
       {
-        "label": "ikuma-theme",
+        "label": "ikuma-theme dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/ikuma-theme-color-theme.json"
+        "path": "./themes/ikuma-theme-dark-color-theme.json"
+      },
+      {
+        "label": "ikuma-theme light",
+        "uiTheme": "vs",
+        "path": "./themes/ikuma-theme-light-color-theme.json"
       }
     ]
   },

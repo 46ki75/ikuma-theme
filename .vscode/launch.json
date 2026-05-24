@@ -12,6 +12,30 @@
 			"args": [
 				"--extensionDevelopmentPath=${workspaceFolder}"
 			]
+		},
+		{
+			"name": "Extension (Dark)",
+			"type": "extensionHost",
+			"request": "launch",
+			"args": [
+				"--extensionDevelopmentPath=${workspaceFolder}",
+				"--user-data-dir=${workspaceFolder}/.vscode-test/dark"
+			]
+		},
+		{
+			"name": "Extension (Light)",
+			"type": "extensionHost",
+			"request": "launch",
+			"args": [
+				"--extensionDevelopmentPath=${workspaceFolder}",
+				"--user-data-dir=${workspaceFolder}/.vscode-test/light"
+			]
+		}
+	],
+	"compounds": [
+		{
+			"name": "Extension (Dark + Light)",
+			"configurations": ["Extension (Dark)", "Extension (Light)"]
 		}
 	]
 }

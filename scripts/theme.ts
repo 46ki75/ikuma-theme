@@ -1,7 +1,13 @@
-import { palette } from "./colors.ts";
-import { v } from "./helper.ts";
+import { createTheme, type ColorMode } from "./helper.ts";
 
-export function getTheme() {
+export interface GetThemeOptions {
+  color: ColorMode;
+  name: string;
+}
+
+export function getTheme(options: GetThemeOptions) {
+  const { v, p } = createTheme(options.color);
+
   const foreground = v("foreground");
   const secondaryForeground = v("secondaryForeground");
   const activeForeground = v("activeForeground");
@@ -13,8 +19,8 @@ export function getTheme() {
   const punctuation = v("punctuation");
 
   return {
-    name: "ikuma-theme",
-    type: "dark",
+    name: options.name,
+    type: options.color,
     semanticHighlighting: true,
     colors: {
       foreground,
@@ -68,12 +74,12 @@ export function getTheme() {
       "editorWidget.background": activeBackground,
       "editorWidget.border": border,
 
-      "editorBracketHighlight.foreground1": palette.base03,
-      "editorBracketHighlight.foreground2": palette.base0F,
-      "editorBracketHighlight.foreground3": palette.primaryDim,
-      "editorBracketHighlight.foreground4": palette.base03,
-      "editorBracketHighlight.foreground5": palette.base0F,
-      "editorBracketHighlight.foreground6": palette.primaryDim,
+      "editorBracketHighlight.foreground1": p("base03"),
+      "editorBracketHighlight.foreground2": p("base0F"),
+      "editorBracketHighlight.foreground3": p("primaryDim"),
+      "editorBracketHighlight.foreground4": p("base03"),
+      "editorBracketHighlight.foreground5": p("base0F"),
+      "editorBracketHighlight.foreground6": p("primaryDim"),
       "editorBracketHighlight.unexpectedBracket.foreground": v("red"),
       "editorBracketMatch.background": v("primary", "40"),
       "editorBracketMatch.border": primary,
@@ -224,7 +230,7 @@ export function getTheme() {
       "terminal.ansiBrightMagenta": v("magenta"),
       "terminal.ansiBrightRed": v("red"),
       "terminal.ansiBrightYellow": v("yellow"),
-      "terminal.ansiBrightWhite": palette.base07,
+      "terminal.ansiBrightWhite": p("base07"),
     },
     semanticTokenColors: {
       comment: { foreground: v("comment"), fontStyle: "italic" },
