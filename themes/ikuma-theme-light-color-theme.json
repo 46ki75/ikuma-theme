@@ -188,13 +188,13 @@
     "decorator": "#3e7548",
     "event": "#3e7548",
     "label": "#7a5e2c",
-    "class": "#7e6536",
-    "interface": "#7e6536",
-    "enum": "#7e6536",
-    "struct": "#7e6536",
-    "type": "#7e6536",
-    "typeParameter": "#7e6536",
-    "namespace": "#7e6536",
+    "class": "#7e4c36",
+    "interface": "#7e4c36",
+    "enum": "#7e4c36",
+    "struct": "#7e4c36",
+    "type": "#7e4c36",
+    "typeParameter": "#7e4c36",
+    "namespace": "#7e4c36",
     "enumMember": "#9c5c4a",
     "*.defaultLibrary": "#54451f",
     "variable.readonly.defaultLibrary": "#9c5c4a",
@@ -269,7 +269,7 @@
         "support.class.component",
         "type.identifier"
       ],
-      "settings": { "foreground": "#7e6536" }
+      "settings": { "foreground": "#7e4c36" }
     },
     {
       "scope": ["variable", "identifier", "variable.parameter"],
@@ -327,7 +327,7 @@
       "scope": "markup.bold",
       "settings": { "foreground": "#4a443a", "fontStyle": "bold" }
     },
-    { "scope": "markup.quote", "settings": { "foreground": "#7e6536" } },
+    { "scope": "markup.quote", "settings": { "foreground": "#7e4c36" } },
     { "scope": "markup.raw", "settings": { "foreground": "#7a6a45" } },
     {
       "scope": [

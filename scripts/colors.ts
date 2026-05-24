@@ -12,13 +12,13 @@ export const palette = {
   base07: ["#cccfd5", "#1c1813"], // lightest foreground
 
   // base16 — syntax accents
-  base08: ["#dcd1ba", "#7a5e2c"], // variables, tags
+  base08: ["#b8aa8b", "#7a5e2c"], // variables, tags
   base09: ["#b8a099", "#9c5c4a"], // numbers, constants
-  base0A: ["#d8cbb7", "#7e6536"], // classes, types
+  base0A: ["#a87d62", "#7e4c36"], // classes, types
   base0B: ["#89a195", "#5e7036"], // strings
   base0C: ["#59b5ac", "#2c7a72"], // support, regex, escapes
   base0D: ["#a8b891", "#3e7548"], // functions, methods
-  base0E: ["#e9d3a0", "#7a6010"], // keywords, storage
+  base0E: ["#e1cb99", "#7a6010"], // keywords, storage
   base0F: ["#ac8c71", "#6e4a30"], // deprecated, embedded tags
 
   // Extended accents

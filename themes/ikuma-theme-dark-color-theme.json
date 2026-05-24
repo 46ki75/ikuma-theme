@@ -173,7 +173,7 @@
   },
   "semanticTokenColors": {
     "comment": { "foreground": "#949ba7", "fontStyle": "italic" },
-    "keyword": "#e9d3a0",
+    "keyword": "#e1cb99",
     "operator": "#b0b5be",
     "string": "#89a195",
     "number": "#b8a099",
@@ -181,20 +181,20 @@
     "variable": "#b0b5be",
     "variable.readonly": "#b8a099",
     "parameter": "#b0b5be",
-    "property": "#dcd1ba",
+    "property": "#b8aa8b",
     "function": "#a8b891",
     "method": "#a8b891",
     "macro": "#a8b891",
     "decorator": "#a8b891",
     "event": "#a8b891",
-    "label": "#dcd1ba",
-    "class": "#d8cbb7",
-    "interface": "#d8cbb7",
-    "enum": "#d8cbb7",
-    "struct": "#d8cbb7",
-    "type": "#d8cbb7",
-    "typeParameter": "#d8cbb7",
-    "namespace": "#d8cbb7",
+    "label": "#b8aa8b",
+    "class": "#a87d62",
+    "interface": "#a87d62",
+    "enum": "#a87d62",
+    "struct": "#a87d62",
+    "type": "#a87d62",
+    "typeParameter": "#a87d62",
+    "namespace": "#a87d62",
     "enumMember": "#b8a099",
     "*.defaultLibrary": "#ece4d4",
     "variable.readonly.defaultLibrary": "#b8a099",
@@ -218,7 +218,7 @@
     },
     {
       "scope": ["keyword", "storage", "storage.type", "storage.modifier"],
-      "settings": { "foreground": "#e9d3a0" }
+      "settings": { "foreground": "#e1cb99" }
     },
     {
       "scope": [
@@ -269,7 +269,7 @@
         "support.class.component",
         "type.identifier"
       ],
-      "settings": { "foreground": "#d8cbb7" }
+      "settings": { "foreground": "#a87d62" }
     },
     {
       "scope": ["variable", "identifier", "variable.parameter"],
@@ -287,7 +287,7 @@
     },
     {
       "scope": ["entity.name.tag", "tag.html"],
-      "settings": { "foreground": "#e9d3a0" }
+      "settings": { "foreground": "#e1cb99" }
     },
     {
       "scope": [
@@ -301,7 +301,7 @@
         "attribute.name",
         "property"
       ],
-      "settings": { "foreground": "#dcd1ba" }
+      "settings": { "foreground": "#b8aa8b" }
     },
     {
       "scope": ["source.regexp", "string.regexp"],
@@ -327,7 +327,7 @@
       "scope": "markup.bold",
       "settings": { "foreground": "#b0b5be", "fontStyle": "bold" }
     },
-    { "scope": "markup.quote", "settings": { "foreground": "#d8cbb7" } },
+    { "scope": "markup.quote", "settings": { "foreground": "#a87d62" } },
     { "scope": "markup.raw", "settings": { "foreground": "#ad9f7d" } },
     {
       "scope": [
