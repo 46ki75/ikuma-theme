@@ -1,9 +1,33 @@
-import { mkdir, copyFile, writeFile, rm, readFile } from "node:fs/promises";
+import {
+  mkdir,
+  copyFile,
+  writeFile,
+  rm,
+  readFile,
+} from "node:fs/promises";
+import { dirname } from "node:path";
 import { format, resolveConfig } from "prettier";
+import { getShikiTheme, type GetThemeOptions } from "./theme.ts";
 
 const OUT = "dist/npm";
 
+async function writeJson(file: string, data: unknown) {
+  await mkdir(dirname(file), { recursive: true });
+  const config = await resolveConfig(file, { editorconfig: true });
+  const formatted = await format(JSON.stringify(data), {
+    ...config,
+    filepath: file,
+  });
+  await writeFile(file, formatted);
+  console.log(`wrote ${file}`);
+}
+
 const root = JSON.parse(await readFile("package.json", "utf8"));
+
+const targets: GetThemeOptions[] = [
+  { color: "dark", name: "ikuma-theme" },
+  { color: "light", name: "ikuma-theme light" },
+];
 
 const pkg = {
   name: "@46ki75/ikuma-theme",
@@ -30,17 +54,11 @@ const pkg = {
 await rm(OUT, { recursive: true, force: true });
 await mkdir(OUT, { recursive: true });
 
-const pkgPath = `${OUT}/package.json`;
-const config = await resolveConfig(pkgPath, { editorconfig: true });
-const formatted = await format(JSON.stringify(pkg), {
-  ...config,
-  filepath: pkgPath,
-});
-
 await Promise.all([
-  writeFile(pkgPath, formatted),
-  copyFile("themes/shiki/ikuma-dark.json", `${OUT}/ikuma-dark.json`),
-  copyFile("themes/shiki/ikuma-light.json", `${OUT}/ikuma-light.json`),
+  writeJson(`${OUT}/package.json`, pkg),
+  ...targets.map((t) =>
+    writeJson(`${OUT}/ikuma-${t.color}.json`, getShikiTheme(t)),
+  ),
   copyFile("README.md", `${OUT}/README.md`),
   copyFile("LICENSE", `${OUT}/LICENSE`),
 ]);

@@ -19,8 +19,9 @@
     "prebuild": "rimraf dist && mkdir -p dist",
     "build": "vsce package --out dist/",
     "build:theme": "node scripts/index.ts",
-    "build:npm": "node scripts/index.ts && node scripts/build-npm.ts",
-    "publish:npm": "npm publish dist/npm",
+    "build:npm": "node scripts/build-npm.ts",
+    "prepublish:npm": "pnpm run build:npm",
+    "publish:npm": "pnpm publish dist/npm",
     "dev": "node --watch --watch-path=scripts scripts/index.ts"
   },
   "contributes": {

@@ -1,7 +1,7 @@
 import { writeFile, mkdir } from "node:fs/promises";
 import { dirname } from "node:path";
 import { format, resolveConfig } from "prettier";
-import { getTheme, getShikiTheme, type GetThemeOptions } from "./theme.ts";
+import { getTheme, type GetThemeOptions } from "./theme.ts";
 import { buildWindowsTerminal, createTheme } from "./helper.ts";
 
 async function writeJson(file: string, data: unknown) {
@@ -30,11 +30,6 @@ await Promise.all([
   // VS Code extension themes
   ...targets.map((t) =>
     writeJson(`themes/ikuma-theme-${t.color}-color-theme.json`, getTheme(t)),
-  ),
-
-  // Shiki: slim syntax-only payload
-  ...targets.map((t) =>
-    writeJson(`themes/shiki/ikuma-${t.color}.json`, getShikiTheme(t)),
   ),
 
   // Windows Terminal: both schemes in one fragment for settings.json

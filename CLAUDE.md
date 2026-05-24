@@ -4,9 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Commands
 
-- `pnpm build:theme` — regenerate all theme JSON files from the TS source. Run this after editing anything under `scripts/` before checking results in VS Code.
+- `pnpm build:theme` — regenerate the VS Code + Windows Terminal JSON from the TS source. Run this after editing anything under `scripts/` before checking results in VS Code.
 - `pnpm build:theme:watch` — same, but re-runs on changes.
 - `pnpm build` — package the VS Code extension as `dist/*.vsix` via `vsce`. This **does not** regenerate the theme JSON; run `build:theme` first if `scripts/` changed.
+- `pnpm build:npm` — assemble the Shiki npm package into `dist/npm/` (JSON + generated `package.json` + LICENSE/README). `pnpm publish:npm` runs this via `prepublish:npm` and then `pnpm publish dist/npm`.
 - No test suite, no linter beyond Prettier (the build pipeline runs Prettier on each JSON output).
 
 To install locally for visual testing: `code --install-extension dist/ikuma-theme-<version>.vsix` then reload window.
@@ -18,15 +19,15 @@ The repo is a single VS Code theme extension, but the build pipeline emits **thr
 | Target | Output | Purpose |
 | --- | --- | --- |
 | VS Code | `themes/ikuma-theme-{dark,light}-color-theme.json` | Full UI + syntax theme (~12 KB) |
-| Shiki | `themes/shiki/ikuma-{dark,light}.json` | Slim syntax-only payload (~5 KB), drops UI keys |
+| Shiki (npm) | `dist/npm/ikuma-{dark,light}.json` | Slim syntax-only payload (~5 KB), drops UI keys; published as `@46ki75/ikuma-theme` |
 | Windows Terminal | `themes/windows-terminal/ikuma.json` | Flat color scheme with both modes in `schemes[]` |
 
 ### Source-of-truth flow
 
 ```
-colors.ts ──┐
-            ├──► helper.ts ──► theme.ts ──► index.ts ──► themes/*.json
-            └────────────────────────────────┘
+                                       ┌─► index.ts     ──► themes/*.json   (VS Code + WT)
+colors.ts ──► helper.ts ──► theme.ts ──┤
+                                       └─► build-npm.ts ──► dist/npm/*.json (Shiki npm pkg)
 ```
 
 - **`scripts/colors.ts`** — the only file you edit to change colors. Two layers:
@@ -38,7 +39,8 @@ colors.ts ──┐
   - `buildAnsi(helpers)` — emits the 16 `terminal.ansi*` keys; VS Code is case-sensitive about these and silently ignores typos.
   - `buildWindowsTerminal(helpers, name)` — emits a flat Windows Terminal scheme (note: WT calls the magenta slot `purple`).
 - **`scripts/theme.ts`** — `getTheme(options)` returns the full VS Code theme object; `getShikiTheme(options)` derives a slim version by picking just `tokenColors` + `semanticTokenColors` + two `colors` keys.
-- **`scripts/index.ts`** — top-level `await Promise.all([...])` writing all targets in parallel through Prettier.
+- **`scripts/index.ts`** — writes the VS Code and Windows Terminal targets into `themes/` via Prettier. Driven by `pnpm build:theme`.
+- **`scripts/build-npm.ts`** — writes the Shiki JSON plus a generated `package.json` (scoped as `@46ki75/ikuma-theme`) and copies of `README.md` / `LICENSE` into `dist/npm/`, ready for `npm publish`. Driven by `pnpm build:npm`.
 
 ### Key design choices
 
