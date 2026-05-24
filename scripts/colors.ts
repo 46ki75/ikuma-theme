@@ -1,9 +1,10 @@
 // Each color is a [dark, light] tuple. Edit either side to retint that variant.
 export const palette = {
   // base16 — UI scale
-  base00: ["#393e46", "#faf7ef"], // default background (editor)
-  base01: ["#31353a", "#f1ecdf"], // lighter background (sidebar, tabs)
-  base02: ["#242629", "#e6dfc8"], // status bar / deep background
+  // Light side: cool slate BG (mirrors dark mode's slate-on-warm contrast).
+  base00: ["#393e46", "#eef2f5"], // default background (editor)
+  base01: ["#31353a", "#e3e8ed"], // lighter background (sidebar, tabs)
+  base02: ["#242629", "#d4dae0"], // status bar / deep background
   base03: ["#949ba7", "#9a9789"], // comments
   base04: ["#aba294", "#6e6759"], // dim foreground (status bar text)
   base05: ["#b0b5be", "#4a443a"], // default foreground, operators
@@ -21,7 +22,7 @@ export const palette = {
   base0F: ["#ac8c71", "#6e4a30"], // deprecated, embedded tags
 
   // Extended accents
-  bgBrightest: ["#454c58", "#d8d0b8"],
+  bgBrightest: ["#454c58", "#c1c9d1"],
   primaryDimDim: ["#5c5346", "#c4b89c"],
   primaryDim: ["#867b64", "#a89878"],
   primary: ["#ad9f7d", "#7a6a45"],
