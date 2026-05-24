@@ -4,12 +4,18 @@
   "description": "VS Code theme for personal use.",
   "publisher": "Ikuma Yamashita",
   "version": "0.0.1",
+  "type": "module",
   "engines": {
     "vscode": "^1.120.0"
   },
   "categories": [
     "Themes"
   ],
+  "scripts": {
+    "build:theme": "node --watch scripts/build-theme.ts",
+    "build:theme:watch": "node --watch scripts/build-theme.ts",
+    "vscode:prepublish": "node scripts/build-theme.ts"
+  },
   "contributes": {
     "themes": [
       {
@@ -18,5 +24,12 @@
         "path": "./themes/ikuma-theme-color-theme.json"
       }
     ]
+  },
+  "devDependencies": {
+    "@types/node": "^24.12.4",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "polished": "^4.3.1"
   }
 }
