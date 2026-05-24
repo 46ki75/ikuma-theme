@@ -155,9 +155,9 @@ export function getTheme(options: GetThemeOptions) {
       "statusBar.border": border,
 
       // title bar
-      "titleBar.activeBackground": background,
+      "titleBar.activeBackground": deepBackground,
       "titleBar.activeForeground": activeForeground,
-      "titleBar.inactiveBackground": background,
+      "titleBar.inactiveBackground": deepBackground,
       "titleBar.inactiveForeground": secondaryForeground,
       "titleBar.border": border,
 
