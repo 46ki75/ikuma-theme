@@ -1,4 +1,4 @@
-import { createTheme, type ColorMode } from "./helper.ts";
+import { buildAnsi, createTheme, type ColorMode } from "./helper.ts";
 
 export interface GetThemeOptions {
   color: ColorMode;
@@ -6,7 +6,8 @@ export interface GetThemeOptions {
 }
 
 export function getTheme(options: GetThemeOptions) {
-  const { v, p } = createTheme(options.color);
+  const helpers = createTheme(options.color);
+  const { v, p } = helpers;
 
   const foreground = v("foreground");
   const secondaryForeground = v("secondaryForeground");
@@ -215,22 +216,7 @@ export function getTheme(options: GetThemeOptions) {
 
       // terminal
       "terminal.foreground": foreground,
-      "terminal.ansiBlack": deepBackground,
-      "terminal.ansiBlue": v("blue"),
-      "terminal.ansiCyan": v("cyan"),
-      "terminal.ansiGreen": v("green"),
-      "terminal.ansiMagenta": v("magenta"),
-      "terminal.ansiRed": v("red"),
-      "terminal.ansiYellow": v("yellow"),
-      "terminal.ansiWhite": v("foreground"),
-      "terminal.ansiBrightBlack": v("primaryDim"),
-      "terminal.ansiBrightBlue": v("blue"),
-      "terminal.ansiBrightCyan": v("cyan"),
-      "terminal.ansiBrightGreen": v("green"),
-      "terminal.ansiBrightMagenta": v("magenta"),
-      "terminal.ansiBrightRed": v("red"),
-      "terminal.ansiBrightYellow": v("yellow"),
-      "terminal.ansiBrightWhite": p("base07"),
+      ...buildAnsi(helpers),
     },
     semanticTokenColors: {
       comment: { foreground: v("comment"), fontStyle: "italic" },

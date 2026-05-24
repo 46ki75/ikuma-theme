@@ -32,6 +32,24 @@ export const palette = {
   crimson: ["#c56565", "#a04545"],
   emerald: ["#59b57c", "#2e8f53"],
 
+  // ANSI terminal palette — independent saturated rainbow, decoupled from the
+  // warm UI palette so TUI output looks like a normal terminal.
+  // Mapping (Solarized convention): orange → ansiBrightRed, purple → ansiBrightMagenta.
+  // Dark values = user-specified; light values are ~30–40% darker for cream-bg legibility.
+  ansiGray: ["#6c7079", "#888376"], // ansiBrightBlack
+  ansiRed: ["#c56565", "#8a3535"],
+  ansiOrange: ["#d48b70", "#b06548"], // ansiBrightRed
+  ansiYellow: ["#cdb57b", "#8a6f30"],
+  ansiYellowBright: ["#e0cb96", "#6e5a2a"],
+  ansiGreen: ["#59b57c", "#2c7a4a"],
+  ansiGreenBright: ["#82ba92", "#1a6b3a"],
+  ansiCyan: ["#5fb5a8", "#2c7a72"], // not user-specified — invented teal that fits the hue spread
+  ansiCyanBright: ["#82d6cd", "#1a5b54"],
+  ansiBlue: ["#6987b8", "#36568a"],
+  ansiBlueBright: ["#8aa6d0", "#2c4670"],
+  ansiPurple: ["#9771bd", "#5e3a8a"], // ansiBrightMagenta
+  ansiMagenta: ["#c9699e", "#8a3a6a"],
+
   transparent: ["#00000000", "#00000000"],
 } as const satisfies Record<string, readonly [string, string]>;
 
@@ -85,7 +103,7 @@ export const tokens = {
   tag: palette.base08,
   attribute: palette.base08,
 
-  // Status accents
+  // Status accents (UI: git, errors, warnings — NOT terminal ANSI; that's in palette.ansi*)
   red: palette.crimson,
   green: palette.emerald,
   orange: palette.primaryBright,
