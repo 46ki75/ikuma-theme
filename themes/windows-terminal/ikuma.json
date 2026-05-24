@@ -1,0 +1,50 @@
+{
+  "schemes": [
+    {
+      "name": "Ikuma dark",
+      "background": "#393e46",
+      "foreground": "#b0b5be",
+      "cursorColor": "#ece4d4",
+      "selectionBackground": "#ad9f7d",
+      "black": "#242629",
+      "red": "#c56565",
+      "green": "#59b57c",
+      "yellow": "#cdb57b",
+      "blue": "#6987b8",
+      "purple": "#c9699e",
+      "cyan": "#5fb5a8",
+      "white": "#b0b5be",
+      "brightBlack": "#6c7079",
+      "brightRed": "#d48b70",
+      "brightGreen": "#82ba92",
+      "brightYellow": "#e0cb96",
+      "brightBlue": "#8aa6d0",
+      "brightPurple": "#9771bd",
+      "brightCyan": "#82d6cd",
+      "brightWhite": "#cccfd5"
+    },
+    {
+      "name": "Ikuma light",
+      "background": "#eef2f5",
+      "foreground": "#4a443a",
+      "cursorColor": "#54451f",
+      "selectionBackground": "#7a6a45",
+      "black": "#d4dae0",
+      "red": "#8a3535",
+      "green": "#2c7a4a",
+      "yellow": "#8a6f30",
+      "blue": "#36568a",
+      "purple": "#8a3a6a",
+      "cyan": "#2c7a72",
+      "white": "#4a443a",
+      "brightBlack": "#888376",
+      "brightRed": "#b06548",
+      "brightGreen": "#1a6b3a",
+      "brightYellow": "#6e5a2a",
+      "brightBlue": "#2c4670",
+      "brightPurple": "#5e3a8a",
+      "brightCyan": "#1a5b54",
+      "brightWhite": "#1c1813"
+    }
+  ]
+}

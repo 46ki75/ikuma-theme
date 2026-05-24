@@ -424,3 +424,20 @@ export function getTheme(options: GetThemeOptions) {
     ],
   };
 }
+
+// Slim VS Code theme JSON for Shiki. Drops the ~150 UI keys Shiki never reads;
+// keeps only what's needed for syntax highlighting in code blocks.
+export function getShikiTheme(options: GetThemeOptions) {
+  const full = getTheme(options);
+  return {
+    name: full.name,
+    type: full.type,
+    semanticHighlighting: full.semanticHighlighting,
+    colors: {
+      "editor.background": full.colors["editor.background"],
+      "editor.foreground": full.colors["editor.foreground"],
+    },
+    tokenColors: full.tokenColors,
+    semanticTokenColors: full.semanticTokenColors,
+  };
+}

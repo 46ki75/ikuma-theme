@@ -43,3 +43,31 @@ export function buildAnsi({ p }: ThemeHelpers) {
     "terminal.ansiBrightWhite": p("base07"),
   };
 }
+
+// Windows Terminal color scheme. Flat JSON, 16 ANSI + bg/fg/cursor/selection.
+// Note: WT spells the magenta slot "purple" (not "magenta").
+export function buildWindowsTerminal({ p, v }: ThemeHelpers, name: string) {
+  return {
+    name,
+    background: v("background"),
+    foreground: v("foreground"),
+    cursorColor: v("primaryBright"),
+    selectionBackground: p("primary"),
+    black: p("base02"),
+    red: p("ansiRed"),
+    green: p("ansiGreen"),
+    yellow: p("ansiYellow"),
+    blue: p("ansiBlue"),
+    purple: p("ansiMagenta"),
+    cyan: p("ansiCyan"),
+    white: p("base05"),
+    brightBlack: p("ansiGray"),
+    brightRed: p("ansiOrange"),
+    brightGreen: p("ansiGreenBright"),
+    brightYellow: p("ansiYellowBright"),
+    brightBlue: p("ansiBlueBright"),
+    brightPurple: p("ansiPurple"),
+    brightCyan: p("ansiCyanBright"),
+    brightWhite: p("base07"),
+  };
+}
