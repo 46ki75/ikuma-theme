@@ -175,11 +175,11 @@
     "variable.readonly": "#bda59e",
     "parameter": "#b0b5be",
     "property": "#dcd1ba",
-    "function": "#8db592",
-    "method": "#8db592",
-    "macro": "#8db592",
-    "decorator": "#8db592",
-    "event": "#8db592",
+    "function": "#acc48b",
+    "method": "#acc48b",
+    "macro": "#acc48b",
+    "decorator": "#acc48b",
+    "event": "#acc48b",
     "label": "#dcd1ba",
     "class": "#d8cbb7",
     "interface": "#d8cbb7",
@@ -251,7 +251,7 @@
         "meta.function-call",
         "variable.function"
       ],
-      "settings": { "foreground": "#8db592" }
+      "settings": { "foreground": "#acc48b" }
     },
     {
       "scope": [

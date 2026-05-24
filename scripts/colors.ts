@@ -16,7 +16,7 @@ export const palette = {
   base0A: ["#d8cbb7", "#7e6536"], // classes, types
   base0B: ["#a9af9c", "#5e7036"], // strings
   base0C: ["#59b5ac", "#2c7a72"], // support, regex, escapes
-  base0D: ["#8db592", "#3e7548"], // functions, methods
+  base0D: ["#acc48b", "#3e7548"], // functions, methods
   base0E: ["#c9af70", "#7a6010"], // keywords, storage
   base0F: ["#ac8c71", "#6e4a30"], // deprecated, embedded tags
 
