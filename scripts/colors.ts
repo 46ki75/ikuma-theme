@@ -5,19 +5,19 @@ export const palette = {
   base01: "#31353a", // lighter background (sidebar, tabs)
   base02: "#242629", // selection / status bar background
   base03: "#949ba7", // comments, invisibles, line highlight
-  base04: "#a2a8b3", // dim foreground (status bar text)
+  base04: "#aba294", // dim foreground (status bar text)
   base05: "#b0b5be", // default foreground, operators, delimiters
   base06: "#bec2ca", // light foreground
   base07: "#cccfd5", // lightest foreground
 
   // base16 — syntax accents
   base08: "#dcd1ba", // variables, tags, deletions
-  base09: "#d48b70", // numbers, constants, attributes
+  base09: "#bda59e", // numbers, constants, attributes
   base0A: "#d8cbb7", // classes, types, search highlight
-  base0B: "#ccaea2", // strings, insertions
-  base0C: "#59a7b5", // support, regex, escapes
-  base0D: "#cdb57b", // functions, methods, headings
-  base0E: "#c0a361", // keywords, storage, selectors
+  base0B: "#a9af9c", // strings, insertions
+  base0C: "#59b5ac", // support, regex, escapes
+  base0D: "#8db592", // functions, methods, headings
+  base0E: "#c9af70", // keywords, storage, selectors
   base0F: "#ac8c71", // deprecated, embedded language tags
 
   // Extended accents (outside base16)
@@ -25,7 +25,7 @@ export const palette = {
   primaryDimDim: "#5c5346",
   primaryDim: "#867b64",
   primary: "#ad9f7d",
-  primaryBright: "#ddcfb5",
+  primaryBright: "#ece4d4",
   secondaryDimDim: "#453f39",
   secondaryDim: "#63564a",
   crimson: "#c56565",
@@ -46,7 +46,7 @@ export const tokens = {
   activeBackground: palette.base01,
   deepBackground: palette.base02,
   bgBrightest: palette.bgBrightest,
-  border: palette.base02,
+  border: "#00000000",
 
   primary: palette.primary,
   primaryDim: palette.primaryDim,
