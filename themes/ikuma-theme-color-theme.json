@@ -120,7 +120,7 @@
         "keyword.control"
       ],
       "settings": {
-        "foreground": "#a38c78"
+        "foreground": "#d9dce4"
       }
     },
     {
@@ -163,12 +163,12 @@
       "fontStyle": "italic"
     },
     "keyword": "#c0a361",
-    "operator": "#a38c78",
+    "operator": "#d9dce4",
     "string": "#ccaea2",
     "number": "#d48b70",
-    "regexp": "#ccaea2",
+    "regexp": "#59a7b5",
     "variable": "#d9dce4",
-    "variable.readonly": "#ad9f7d",
+    "variable.readonly": "#d48b70",
     "parameter": "#d9dce4",
     "property": "#dcd1ba",
     "function": "#cdb57b",
@@ -186,7 +186,7 @@
     "namespace": "#d8cbb7",
     "enumMember": "#d48b70",
     "*.defaultLibrary": "#ddcfb5",
-    "variable.readonly.defaultLibrary": "#ad9f7d",
+    "variable.readonly.defaultLibrary": "#d48b70",
     "*.async": {
       "fontStyle": "italic"
     },

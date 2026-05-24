@@ -3,109 +3,103 @@ import { dirname } from "node:path";
 import { opacify } from "polished";
 
 const palette = {
-  bgDimDim: "#171819",
-  bgDim: "#242629",
-  bg: "#31353a",
-  bgBlight: "#393e46",
-  bgBlightest: "#454c58",
+  // base16 — UI scale (dark → light)
+  base00: "#393e46", // default background (editor)
+  base01: "#31353a", // lighter background (sidebar, tabs)
+  base02: "#242629", // selection / status bar background
+  base03: "#868e9c", // comments, invisibles, line highlight
+  base04: "#b0b5be", // dim foreground (status bar text)
+  base05: "#d9dce4", // default foreground, operators, delimiters
+  base06: "#f5f6f8", // light foreground
+  base07: "#f1e9da", // lightest foreground
 
-  fgDim: "#b0b5be",
-  fg: "#d9dce4",
-  fgLight: "#f5f6f8",
+  // base16 — syntax accents
+  base08: "#dcd1ba", // variables, tags, deletions
+  base09: "#d48b70", // numbers, constants, attributes
+  base0A: "#d8cbb7", // classes, types, search highlight
+  base0B: "#ccaea2", // strings, insertions
+  base0C: "#59a7b5", // support, regex, escapes
+  base0D: "#cdb57b", // functions, methods, headings
+  base0E: "#c0a361", // keywords, storage, selectors
+  base0F: "#967a62", // deprecated, embedded language tags
+
+  // Extended UI accents (outside base16; for non-syntax workbench keys)
+  bgBrightest: "#454c58",
 
   primaryDimDim: "#5c5346",
   primaryDim: "#867b64",
   primary: "#ad9f7d",
   primaryBright: "#ddcfb5",
-  primaryBrightest: "#f1e9da",
 
   secondaryDimDim: "#453f39",
   secondaryDim: "#63564a",
-  secondary: "#a17c5b",
 
   crimson: "#c56565",
-  brown: "#967a62",
-  amber: "#a97562",
-  gold: "#cdb57b",
-  emerald: "#59b57c",
-  cyan: "#59a7b5",
-  slate: "#868e9c",
 
+  primaryHighlight: "#ad9f7d40",
   crimsonTransparent: "#c56565c7",
   emeraldTransparent: "#59b57cc5",
-  primaryHighlight: "#ad9f7d40",
-
-  comment: "#868e9c",
-  operator: "#a38c78",
-  keyword: "#c0a361",
-  function: "#cdb57b",
-  type: "#d8cbb7",
-  string: "#ccaea2",
-  number: "#d48b70",
-  tag: "#dcd1ba",
-
-  error: "#c56565",
 } as const;
 
 const theme = {
   name: "ikuma-theme",
   type: "dark",
   colors: {
-    foreground: palette.primaryBrightest,
+    foreground: palette.base07,
     "textLink.foreground": palette.primary,
     "textLink.activeForeground": palette.primaryBright,
     "list.activeSelectionBackground": palette.secondaryDimDim,
     "list.activeSelectionForeground": palette.primaryBright,
     focusBorder: palette.primaryDimDim,
-    "input.background": palette.bgBlightest,
+    "input.background": palette.bgBrightest,
 
     "chat.linesAddedForeground": palette.emeraldTransparent,
     "chat.linesRemovedForeground": palette.crimsonTransparent,
 
-    "editor.background": palette.bgBlight,
-    "editor.foreground": palette.fg,
+    "editor.background": palette.base00,
+    "editor.foreground": palette.base05,
 
-    "activityBar.background": palette.bgDim,
+    "activityBar.background": palette.base02,
     "activityBar.foreground": palette.primaryBright,
-    "activityBar.activeBackground": palette.bg,
+    "activityBar.activeBackground": palette.base01,
     "activityBar.activeBorder": palette.primaryBright,
 
-    "sideBarTitle.foreground": palette.fgDim,
-    "sideBar.background": palette.bg,
+    "sideBarTitle.foreground": palette.base04,
+    "sideBar.background": palette.base01,
 
     "tab.activeBorderTop": palette.primary,
-    "editorGroupHeader.tabsBackground": palette.bg,
+    "editorGroupHeader.tabsBackground": palette.base01,
 
-    "panel.background": palette.bgBlight,
+    "panel.background": palette.base00,
 
     "button.background": palette.primary,
-    "button.foreground": palette.fg,
+    "button.foreground": palette.base05,
 
     "panelTitle.inactiveForeground": palette.primaryDim,
     "panelTitle.activeForeground": palette.primaryBright,
 
-    "menu.background": palette.bgBlight,
-    "menu.foreground": palette.primaryBrightest,
+    "menu.background": palette.base00,
+    "menu.foreground": palette.base07,
 
     "scrollbarSlider.background": palette.primaryDim,
 
     "activityBarBadge.background": palette.secondaryDim,
-    "activityBarBadge.foreground": palette.primaryBrightest,
+    "activityBarBadge.foreground": palette.base07,
 
-    "statusBar.background": palette.bgDim,
-    "statusBar.noFolderBackground": palette.bgDim,
-    "statusBar.debuggingBackground": palette.bgDim,
+    "statusBar.background": palette.base02,
+    "statusBar.noFolderBackground": palette.base02,
+    "statusBar.debuggingBackground": palette.base02,
     "statusBar.foreground": palette.primaryBright,
 
-    "quickInput.background": palette.bg,
+    "quickInput.background": palette.base01,
     "quickInput.foreground": palette.primaryBright,
     "quickInputList.focusBackground": palette.primaryDimDim,
 
-    "editorBracketHighlight.foreground1": palette.slate,
-    "editorBracketHighlight.foreground2": palette.brown,
+    "editorBracketHighlight.foreground1": palette.base03,
+    "editorBracketHighlight.foreground2": palette.base0F,
     "editorBracketHighlight.foreground3": palette.primaryDim,
-    "editorBracketHighlight.foreground4": palette.slate,
-    "editorBracketHighlight.foreground5": palette.brown,
+    "editorBracketHighlight.foreground4": palette.base03,
+    "editorBracketHighlight.foreground5": palette.base0F,
     "editorBracketHighlight.foreground6": palette.primaryDim,
     "editorBracketHighlight.unexpectedBracket.foreground": palette.crimson,
 
@@ -117,15 +111,15 @@ const theme = {
   tokenColors: [
     {
       scope: ["comment", "punctuation.definition.comment"],
-      settings: { foreground: palette.comment, fontStyle: "italic" },
+      settings: { foreground: palette.base03, fontStyle: "italic" },
     },
     {
       scope: ["keyword", "storage.type", "storage.modifier"],
-      settings: { foreground: palette.keyword },
+      settings: { foreground: palette.base0E },
     },
     {
       scope: ["string", "constant.other.symbol"],
-      settings: { foreground: palette.string },
+      settings: { foreground: palette.base0B },
     },
     {
       scope: [
@@ -134,7 +128,7 @@ const theme = {
         "constant.character",
         "constant.character.escape",
       ],
-      settings: { foreground: palette.number },
+      settings: { foreground: palette.base09 },
     },
     {
       scope: [
@@ -143,7 +137,7 @@ const theme = {
         "meta.function-call",
         "variable.function",
       ],
-      settings: { foreground: palette.function },
+      settings: { foreground: palette.base0D },
     },
     {
       scope: [
@@ -154,11 +148,11 @@ const theme = {
         "variable.other.readwrite.alias",
         "support.class.component",
       ],
-      settings: { foreground: palette.type },
+      settings: { foreground: palette.base0A },
     },
     {
       scope: ["keyword.operator", "keyword.control"],
-      settings: { foreground: palette.operator },
+      settings: { foreground: palette.base05 },
     },
     {
       scope: [
@@ -171,50 +165,50 @@ const theme = {
         "support.type.property-name.toml",
         "variable.other.enummember",
       ],
-      settings: { foreground: palette.tag },
+      settings: { foreground: palette.base08 },
     },
     {
       scope: ["invalid", "invalid.illegal"],
-      settings: { foreground: palette.error },
+      settings: { foreground: palette.crimson },
     },
     {
       scope: ["variable", "variable.parameter"],
-      settings: { foreground: palette.fg },
+      settings: { foreground: palette.base05 },
     },
   ],
   semanticTokenColors: {
-    comment: { foreground: palette.comment, fontStyle: "italic" },
+    comment: { foreground: palette.base03, fontStyle: "italic" },
 
-    keyword: palette.keyword,
-    operator: palette.operator,
+    keyword: palette.base0E,
+    operator: palette.base05,
 
-    string: palette.string,
-    number: palette.number,
-    regexp: palette.string,
+    string: palette.base0B,
+    number: palette.base09,
+    regexp: palette.base0C,
 
-    variable: palette.fg,
-    "variable.readonly": palette.primary,
-    parameter: palette.fg,
-    property: palette.tag,
+    variable: palette.base05,
+    "variable.readonly": palette.base09,
+    parameter: palette.base05,
+    property: palette.base08,
 
-    function: palette.function,
-    method: palette.function,
-    macro: palette.function,
-    decorator: palette.function,
-    event: palette.function,
-    label: palette.tag,
+    function: palette.base0D,
+    method: palette.base0D,
+    macro: palette.base0D,
+    decorator: palette.base0D,
+    event: palette.base0D,
+    label: palette.base08,
 
-    class: palette.type,
-    interface: palette.type,
-    enum: palette.type,
-    struct: palette.type,
-    type: palette.type,
-    typeParameter: palette.type,
-    namespace: palette.type,
-    enumMember: palette.number,
+    class: palette.base0A,
+    interface: palette.base0A,
+    enum: palette.base0A,
+    struct: palette.base0A,
+    type: palette.base0A,
+    typeParameter: palette.base0A,
+    namespace: palette.base0A,
+    enumMember: palette.base09,
 
     "*.defaultLibrary": palette.primaryBright,
-    "variable.readonly.defaultLibrary": palette.primary,
+    "variable.readonly.defaultLibrary": palette.base09,
     "*.async": { fontStyle: "italic" },
     "*.deprecated": { fontStyle: "strikethrough" },
   },
