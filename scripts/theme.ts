@@ -80,6 +80,10 @@ export function getTheme(options: GetThemeOptions) {
 
       "editorWidget.background": activeBackground,
       "editorWidget.border": border,
+      "editorHoverWidget.background": activeBackground,
+      "editorHoverWidget.border": v("primary", "40"),
+      "editorSuggestWidget.background": activeBackground,
+      "editorSuggestWidget.border": v("primary", "40"),
 
       "editorBracketHighlight.foreground1": p("base03"),
       "editorBracketHighlight.foreground2": p("base0F"),

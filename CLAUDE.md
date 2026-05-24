@@ -18,16 +18,18 @@ The repo is a single VS Code theme extension, but the build pipeline emits **thr
 
 | Target | Output | Purpose |
 | --- | --- | --- |
-| VS Code | `themes/ikuma-theme-{dark,light}-color-theme.json` | Full UI + syntax theme (~12 KB) |
+| VS Code | `dist/vscode-theme/ikuma-theme-{dark,light}-color-theme.json` | Full UI + syntax theme (~12 KB); shipped inside the vsix |
 | Shiki (npm) | `dist/npm/ikuma-{dark,light}.json` | Slim syntax-only payload (~5 KB), drops UI keys; published as `@46ki75/ikuma-theme` |
-| Windows Terminal | `themes/windows-terminal/ikuma.json` | Flat color scheme with both modes in `schemes[]` |
+| Windows Terminal | `dist/windows-terminal/ikuma.json` | Flat color scheme with both modes in `schemes[]` |
+
+All three live under gitignored `dist/`. `.vscodeignore` re-includes only `dist/vscode-theme/**` so the vsix doesn't bundle the npm package or Windows Terminal scheme.
 
 ### Source-of-truth flow
 
 ```
-                                       ┌─► index.ts     ──► themes/*.json   (VS Code + WT)
-colors.ts ──► helper.ts ──► theme.ts ──┤
-                                       └─► build-npm.ts ──► dist/npm/*.json (Shiki npm pkg)
+                                       ┌─► index.ts     ──► dist/vscode-theme/*.json  (VS Code)
+colors.ts ──► helper.ts ──► theme.ts ──┤                    dist/windows-terminal/*.json (WT)
+                                       └─► build-npm.ts ──► dist/npm/*.json           (Shiki npm pkg)
 ```
 
 - **`scripts/colors.ts`** — the only file you edit to change colors. Two layers:
@@ -39,14 +41,14 @@ colors.ts ──► helper.ts ──► theme.ts ──┤
   - `buildAnsi(helpers)` — emits the 16 `terminal.ansi*` keys; VS Code is case-sensitive about these and silently ignores typos.
   - `buildWindowsTerminal(helpers, name)` — emits a flat Windows Terminal scheme (note: WT calls the magenta slot `purple`).
 - **`scripts/theme.ts`** — `getTheme(options)` returns the full VS Code theme object; `getShikiTheme(options)` derives a slim version by picking just `tokenColors` + `semanticTokenColors` + two `colors` keys.
-- **`scripts/index.ts`** — writes the VS Code and Windows Terminal targets into `themes/` via Prettier. Driven by `pnpm build:theme`.
+- **`scripts/index.ts`** — writes the VS Code theme into `dist/vscode-theme/` and the Windows Terminal scheme into `dist/windows-terminal/`, both via Prettier. Driven by `pnpm build:theme`. `pnpm build` (which runs `vsce package`) chains `build:theme` via `prebuild` so the vsix always picks up fresh JSON.
 - **`scripts/build-npm.ts`** — writes the Shiki JSON plus a generated `package.json` (scoped as `@46ki75/ikuma-theme`) and copies of `README.md` / `LICENSE` into `dist/npm/`, ready for `npm publish`. Driven by `pnpm build:npm`.
 
 ### Key design choices
 
 - **ANSI palette is decoupled from the UI palette.** The warm-brown UI tokens (`primary`, `keyword`, etc.) and the saturated rainbow ANSI colors (`ansiRed`, `ansiOrange`, ...) live side-by-side in `palette` but never cross-reference. UI status accents (`red`, `green`) use the warm UI palette; terminal output uses the rainbow palette.
 - **Solarized convention** for the 8→16 ANSI mapping: orange → `ansiBrightRed`, purple → `ansiBrightMagenta`.
-- **Light mode mirrors dark mode's temperature contrast**: cool slate BG + warm gold accents in both. Don't reintroduce warm cream backgrounds on the light side without thinking through the consequence (everything-warm reads as monotone).
+- **Slate-and-gold concept, inverted between modes.** Dark mode = dark slate BG + light slate primary FG + gold accent. Light mode = light gold/cream BG + dark slate primary FG + gold accent. The shared element is gold accents (base08/0A/0E, `primary*`); BG and primary FG swap temperature between modes. Don't push light mode toward cool slate backgrounds — that's the old mirror concept and contradicts the current direction.
 - **`primary` vs `primaryHover` vs `primaryBright`** are three distinct accent intensities. `primaryBright` is max-contrast — using it for hover states blows out the UI.
 
 ### Native TS, no bundler

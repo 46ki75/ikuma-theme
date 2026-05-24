@@ -16,7 +16,7 @@
     "Themes"
   ],
   "scripts": {
-    "prebuild": "rimraf dist && mkdir -p dist",
+    "prebuild": "rimraf dist && mkdir -p dist && pnpm build:theme",
     "build": "vsce package --out dist/",
     "build:theme": "node scripts/index.ts",
     "build:npm": "node scripts/build-npm.ts",
@@ -29,12 +29,12 @@
       {
         "label": "Ikuma Theme Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/ikuma-theme-dark-color-theme.json"
+        "path": "./dist/vscode-theme/ikuma-theme-dark-color-theme.json"
       },
       {
         "label": "Ikuma Theme Light",
         "uiTheme": "vs",
-        "path": "./themes/ikuma-theme-light-color-theme.json"
+        "path": "./dist/vscode-theme/ikuma-theme-light-color-theme.json"
       }
     ]
   },

@@ -29,9 +29,12 @@ const windowsTerminal = {
 await Promise.all([
   // VS Code extension themes
   ...targets.map((t) =>
-    writeJson(`themes/ikuma-theme-${t.color}-color-theme.json`, getTheme(t)),
+    writeJson(
+      `dist/vscode-theme/ikuma-theme-${t.color}-color-theme.json`,
+      getTheme(t),
+    ),
   ),
 
   // Windows Terminal: both schemes in one fragment for settings.json
-  writeJson("themes/windows-terminal/ikuma.json", windowsTerminal),
+  writeJson("dist/windows-terminal/ikuma.json", windowsTerminal),
 ]);

@@ -1,25 +1,26 @@
 // Each color is a [dark, light] tuple. Edit either side to retint that variant.
 export const palette = {
   // base16 — UI scale
-  // Light side: cool slate BG (mirrors dark mode's slate-on-warm contrast).
-  base00: ["#393e46", "#eef2f5"], // default background (editor)
-  base01: ["#31353a", "#e3e8ed"], // lighter background (sidebar, tabs)
-  base02: ["#242629", "#d4dae0"], // status bar / deep background
-  base03: ["#949ba7", "#9a9789"], // comments
-  base04: ["#aba294", "#6e6759"], // dim foreground (status bar text)
-  base05: ["#b0b5be", "#4a443a"], // default foreground, operators
-  base06: ["#bec2ca", "#332e26"], // light foreground
-  base07: ["#cccfd5", "#1c1813"], // lightest foreground
+  // Light side mirrors dark: cool slate BG + cool slate FG progression, with
+  // warm tan base04 providing temperature contrast against the surrounding slate.
+  base00: ["#393e46", "#efecea"], // default background (editor)
+  base01: ["#31353a", "#ebe6e2"], // lighter background (sidebar, tabs)
+  base02: ["#242629", "#d9d3cc"], // status bar / deep background
+  base03: ["#949ba7", "#a0aabb"], // comments
+  base04: ["#aba294", "#a39984"], // dim foreground (status bar text)
+  base05: ["#b0b5be", "#686e7a"], // default foreground, operators
+  base06: ["#bec2ca", "#584f4f"], // light foreground
+  base07: ["#cccfd5", "#383a3d"], // lightest foreground
 
   // base16 — syntax accents
-  base08: ["#b8aa8b", "#7a5e2c"], // variables, tags
-  base09: ["#b8a099", "#9c5c4a"], // numbers, constants
-  base0A: ["#a87d62", "#7e4c36"], // classes, types
-  base0B: ["#89a195", "#5e7036"], // strings
-  base0C: ["#59b5ac", "#2c7a72"], // support, regex, escapes
-  base0D: ["#a8b891", "#3e7548"], // functions, methods
-  base0E: ["#e1cb99", "#7a6010"], // keywords, storage
-  base0F: ["#ac8c71", "#6e4a30"], // deprecated, embedded tags
+  base08: ["#b8aa8b", "#b5a78e"], // variables, tags
+  base09: ["#b8a099", "#b35c46"], // numbers, constants
+  base0A: ["#a87d62", "#ad592f96"], // classes, types
+  base0B: ["#89a195", "#87a897"], // strings
+  base0C: ["#59b5ac", "#2e8a80"], // support, regex, escapes
+  base0D: ["#a8b891", "#6d9331"], // functions, methods
+  base0E: ["#e1cb99", "#ba7f27"], // keywords, storage
+  base0F: ["#ac8c71", "#ac8c71"], // deprecated, embedded tags
 
   // Extended accents
   bgBrightest: ["#454c58", "#c1c9d1"],
@@ -29,7 +30,7 @@ export const palette = {
   // One step brighter/lighter than primary — for hover states. NOT the maximum-contrast accent.
   primaryHover: ["#c2b491", "#8b7a52"],
   // primaryBright = highest-contrast accent (light in dark mode, dark in light mode)
-  primaryBright: ["#ece4d4", "#54451f"],
+  primaryBright: ["#ece4d4", "#84661b"],
   secondaryDimDim: ["#453f39", "#dcd0b8"],
   secondaryDim: ["#63564a", "#b8a888"],
   crimson: ["#c56565", "#a04545"],
