@@ -74,6 +74,10 @@ export function getTheme(options: GetThemeOptions) {
       "editorStickyScroll.shadow": p("transparent"),
       "editorStickyScroll.border": v("primaryDim", "40"),
 
+      // Kills the box-shadow divider under terminal sticky scroll
+      // (rendered via --vscode-scrollbar-shadow, not the border token).
+      "scrollbar.shadow": p("transparent"),
+
       "editorWidget.background": activeBackground,
       "editorWidget.border": border,
 
@@ -125,7 +129,7 @@ export function getTheme(options: GetThemeOptions) {
       "tab.activeForeground": foreground,
       "tab.inactiveForeground": secondaryForeground,
       "tab.hoverBackground": activeBackground,
-      "tab.border": border,
+      "tab.border": v("primary", "40"),
       "editorGroupHeader.tabsBackground": activeBackground,
       "editorGroupHeader.tabsBorder": border,
       "editorGroup.border": border,
@@ -218,6 +222,10 @@ export function getTheme(options: GetThemeOptions) {
 
       // terminal
       "terminal.foreground": foreground,
+      "terminalStickyScroll.background": activeBackground,
+      "terminalStickyScrollHover.background": activeBackground,
+      "terminalStickyScroll.border": activeBackground,
+      "terminalCommandGuide.foreground": primary,
       ...buildAnsi(helpers),
     },
     semanticTokenColors: {
