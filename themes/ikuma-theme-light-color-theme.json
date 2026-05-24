@@ -153,6 +153,7 @@
     "terminalStickyScroll.background": "#e3e8ed",
     "terminalStickyScrollHover.background": "#e3e8ed",
     "terminalStickyScroll.border": "#e3e8ed",
+    "terminalCommandGuide.foreground": "#7a6a45",
     "terminal.ansiBlack": "#d4dae0",
     "terminal.ansiRed": "#8a3535",
     "terminal.ansiGreen": "#2c7a4a",

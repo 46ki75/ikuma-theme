@@ -225,6 +225,7 @@ export function getTheme(options: GetThemeOptions) {
       "terminalStickyScroll.background": activeBackground,
       "terminalStickyScrollHover.background": activeBackground,
       "terminalStickyScroll.border": activeBackground,
+      "terminalCommandGuide.foreground": primary,
       ...buildAnsi(helpers),
     },
     semanticTokenColors: {
