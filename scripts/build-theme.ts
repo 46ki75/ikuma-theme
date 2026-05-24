@@ -7,11 +7,11 @@ const palette = {
   base00: "#393e46", // default background (editor)
   base01: "#31353a", // lighter background (sidebar, tabs)
   base02: "#242629", // selection / status bar background
-  base03: "#868e9c", // comments, invisibles, line highlight
-  base04: "#b0b5be", // dim foreground (status bar text)
-  base05: "#d9dce4", // default foreground, operators, delimiters
-  base06: "#f5f6f8", // light foreground
-  base07: "#f1e9da", // lightest foreground
+  base03: "#949ba7", // comments, invisibles, line highlight
+  base04: "#a2a8b3", // dim foreground (status bar text)
+  base05: "#b0b5be", // default foreground, operators, delimiters
+  base06: "#bec2ca", // light foreground
+  base07: "#cccfd5", // lightest foreground
 
   // base16 — syntax accents
   base08: "#dcd1ba", // variables, tags, deletions
@@ -21,7 +21,7 @@ const palette = {
   base0C: "#59a7b5", // support, regex, escapes
   base0D: "#cdb57b", // functions, methods, headings
   base0E: "#c0a361", // keywords, storage, selectors
-  base0F: "#967a62", // deprecated, embedded language tags
+  base0F: "#ac8c71", // deprecated, embedded language tags
 
   // Extended UI accents (outside base16; for non-syntax workbench keys)
   bgBrightest: "#454c58",
@@ -110,6 +110,13 @@ const theme = {
   },
   tokenColors: [
     {
+      scope: [
+        "punctuation.definition.tag", // matches .begin/.end/.html/.tsx/.jsx variants
+        "punctuation.definition.typeparameters", // TS generics
+      ],
+      settings: { foreground: palette.base03 },
+    },
+    {
       scope: ["comment", "punctuation.definition.comment"],
       settings: { foreground: palette.base03, fontStyle: "italic" },
     },
@@ -152,7 +159,7 @@ const theme = {
     },
     {
       scope: ["keyword.operator", "keyword.control"],
-      settings: { foreground: palette.base05 },
+      settings: { foreground: palette.base0F },
     },
     {
       scope: [
