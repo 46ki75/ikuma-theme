@@ -1,10 +1,16 @@
 import { writeFile, mkdir } from "node:fs/promises";
 import { dirname } from "node:path";
+import { format, resolveConfig } from "prettier";
 import { getTheme, type GetThemeOptions } from "./theme.ts";
 
 async function write(file: string, options: GetThemeOptions) {
   await mkdir(dirname(file), { recursive: true });
-  await writeFile(file, JSON.stringify(getTheme(options), null, 2) + "\n");
+  const config = await resolveConfig(file, { editorconfig: true });
+  const formatted = await format(JSON.stringify(getTheme(options)), {
+    ...config,
+    filepath: file,
+  });
+  await writeFile(file, formatted);
   console.log(`wrote ${file}`);
 }
 
