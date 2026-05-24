@@ -36,7 +36,7 @@ export function getTheme(options: GetThemeOptions) {
       "input.placeholderForeground": secondaryForeground,
 
       "button.background": primary,
-      "button.foreground": foreground,
+      "button.foreground": "background",
       "button.hoverBackground": v("primaryBright"),
 
       "badge.background": v("secondaryDim"),
@@ -128,9 +128,9 @@ export function getTheme(options: GetThemeOptions) {
       "editorGroupHeader.tabsBorder": border,
       "editorGroup.border": border,
 
-      // panel
+      // panel (terminal / problems / output / debug-console container)
       "panel.background": background,
-      "panel.border": border,
+      "panel.border": v("primaryDim"),
       "panelTitle.inactiveForeground": v("primaryDim"),
       "panelTitle.activeForeground": v("primaryBright"),
       "panelTitle.activeBorder": primary,
