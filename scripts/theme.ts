@@ -136,7 +136,7 @@ export function getTheme(options: GetThemeOptions) {
 
       // panel (terminal / problems / output / debug-console container)
       "panel.background": background,
-      "panel.border": v("primaryDim"),
+      "panel.border": v("primaryDimDim"),
       "panelTitle.inactiveForeground": v("primaryDim"),
       "panelTitle.activeForeground": v("primaryBright"),
       "panelTitle.activeBorder": primary,
