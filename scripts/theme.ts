@@ -129,7 +129,7 @@ export function getTheme(options: GetThemeOptions) {
       "tab.activeForeground": foreground,
       "tab.inactiveForeground": secondaryForeground,
       "tab.hoverBackground": activeBackground,
-      "tab.border": border,
+      "tab.border": v("primary", "40"),
       "editorGroupHeader.tabsBackground": activeBackground,
       "editorGroupHeader.tabsBorder": border,
       "editorGroup.border": border,

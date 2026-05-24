@@ -83,7 +83,7 @@
     "tab.activeForeground": "#4a443a",
     "tab.inactiveForeground": "#6e6759",
     "tab.hoverBackground": "#e3e8ed",
-    "tab.border": "#00000000",
+    "tab.border": "#7a6a4540",
     "editorGroupHeader.tabsBackground": "#e3e8ed",
     "editorGroupHeader.tabsBorder": "#00000000",
     "editorGroup.border": "#00000000",
