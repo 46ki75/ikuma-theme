@@ -1,1 +1,1 @@
-# vscode-ikuma-theme README
+# ikuma-theme README
