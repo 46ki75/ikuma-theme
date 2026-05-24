@@ -4,6 +4,10 @@
   "description": "VS Code theme for personal use.",
   "publisher": "46ki75",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/46ki75/vscode-ikuma-theme"
+  },
   "type": "module",
   "engines": {
     "vscode": "^1.120.0"
