@@ -3,7 +3,7 @@
   "displayName": "ikuma-theme",
   "description": "VS Code theme for personal use.",
   "publisher": "46ki75",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "repository": {
     "type": "git",
     "url": "https://github.com/46ki75/ikuma-theme"
@@ -16,10 +16,11 @@
     "Themes"
   ],
   "scripts": {
-    "prebuild": "rimraf dist && mkdir -p dist && pnpm build:theme",
-    "build": "vsce package --out dist/",
+    "prebuild": "rimraf dist && mkdir -p dist",
+    "build": "pnpm build:theme && pnpm build:npm && pnpm build:vsix",
     "build:theme": "node scripts/index.ts",
     "build:npm": "node scripts/build-npm.ts",
+    "build:vsix": "vsce package --out dist/",
     "prepublish:npm": "pnpm run build:npm",
     "publish:npm": "pnpm publish dist/npm",
     "dev": "node --watch --watch-path=scripts scripts/index.ts"

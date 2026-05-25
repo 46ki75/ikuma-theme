@@ -4,10 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Commands
 
-- `pnpm build:theme` — regenerate the VS Code + Windows Terminal JSON from the TS source. Run this after editing anything under `scripts/` before checking results in VS Code.
-- `pnpm build:theme:watch` — same, but re-runs on changes.
-- `pnpm build` — package the VS Code extension as `dist/*.vsix` via `vsce`. This **does not** regenerate the theme JSON; run `build:theme` first if `scripts/` changed.
-- `pnpm build:npm` — assemble the Shiki npm package into `dist/npm/` (JSON + generated `package.json` + LICENSE/README). `pnpm publish:npm` runs this via `prepublish:npm` and then `pnpm publish dist/npm`.
+- `pnpm build` — full pipeline: wipes `dist/`, then runs `build:theme` → `build:npm` → `build:vsix`. Produces every output (VS Code theme JSON, Shiki npm pkg, Windows Terminal scheme, vsix) under `dist/`.
+- `pnpm build:theme` — regenerate just the VS Code + Windows Terminal JSON from the TS source. Use this when iterating on `scripts/` and reloading the VS Code window.
+- `pnpm build:npm` — assemble just the Shiki npm package into `dist/npm/` (JSON + generated `package.json` + LICENSE/README). `pnpm publish:npm` runs this via `prepublish:npm` and then `pnpm publish dist/npm`.
+- `pnpm build:vsix` — just package the vsix into `dist/` via `vsce`. Assumes `build:theme` has already populated `dist/vscode-theme/`; if not, run `build:theme` first or just use `pnpm build`.
+- `pnpm dev` — watch mode: re-runs `build:theme` on changes under `scripts/`.
 - No test suite, no linter beyond Prettier (the build pipeline runs Prettier on each JSON output).
 
 To install locally for visual testing: `code --install-extension dist/ikuma-theme-<version>.vsix` then reload window.
