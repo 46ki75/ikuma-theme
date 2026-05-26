@@ -438,7 +438,7 @@ export function getShikiTheme(options: GetThemeOptions) {
     type: full.type,
     semanticHighlighting: full.semanticHighlighting,
     colors: {
-      "editor.background": full.colors["editor.background"],
+      "editor.background": "#00000000",
       "editor.foreground": full.colors["editor.foreground"],
     },
     tokenColors: full.tokenColors,
