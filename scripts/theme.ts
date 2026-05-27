@@ -118,7 +118,7 @@ export function getTheme(options: GetThemeOptions) {
       // lists / trees
       "list.activeSelectionBackground": v("secondaryDimDim"),
       "list.activeSelectionForeground": v("primaryBright"),
-      "list.inactiveSelectionBackground": activeBackground,
+      "list.inactiveSelectionBackground": v("secondaryDimDim", "80"),
       "list.inactiveSelectionForeground": foreground,
       "list.hoverBackground": activeBackground,
       "list.hoverForeground": foreground,
