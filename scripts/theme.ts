@@ -42,6 +42,8 @@ export function getTheme(options: GetThemeOptions) {
       "badge.background": v("secondaryDim"),
       "badge.foreground": foreground,
 
+      "progressBar.background": primary,
+
       "chat.linesAddedForeground": v("green", "c5"),
       "chat.linesRemovedForeground": v("red", "c7"),
 
